@@ -39,7 +39,7 @@ public class DistrictController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<DistrictModel> findById(@PathVariable String id) {
+    public ResponseEntity<DistrictModel> findById(@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
 }

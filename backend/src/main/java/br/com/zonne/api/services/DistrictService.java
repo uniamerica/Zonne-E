@@ -35,7 +35,7 @@ public class DistrictService {
     }
 
     // FIND BY ID
-    public DistrictModel findById(String id) {
+    public DistrictModel findById(Long id) {
         Optional<DistrictModel> result = repository.findById(id);
         return result.orElseThrow(() -> new ServiceException("District not found. Please try again."));
     }
