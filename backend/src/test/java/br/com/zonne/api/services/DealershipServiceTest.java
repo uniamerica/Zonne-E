@@ -36,7 +36,25 @@ public class DealershipServiceTest {
         DealershipModel dealershipTest = service.findById(id);
         Assertions.assertEquals(dealershipTest.getIdDealership(), id);
     }
-   /* @Test
-    public void dea
-*/
+
+    @Test
+    public void dealershipServiceTestInsertDealership(){
+        DealershipModel dealershipTest = new DealershipModel(1L, "dealershipTeste");
+        Mockito.when(repository.save(dealershipTest)).thenReturn(dealershipTest);
+        DealershipModel dealershipInserted = service.findById(1L);
+
+        Assertions.assertEquals(dealershipTest, dealershipInserted);
+        Assertions.assertNotNull(dealershipInserted);
+        System.out.println(dealershipInserted);
+
+    }
+
+    @Before
+    public void setup(){
+        DealershipModel dealership = new DealershipModel(1L, "dealershipTeste");
+
+        Mockito.when(repository.findById(dealership.getIdDealership())).thenReturn(java.util.Optional.of(dealership));
+        
+    }
+
 }
