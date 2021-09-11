@@ -20,7 +20,7 @@ public class DealershipService {
     //FIND ALL
     public List<DealershipModel> findAll() {
         List<DealershipModel> result = repository.findAll();
-        return result.stream().map(x -> new DistrictModel(x)).collect(Collectors.toList());
+        return result.stream().map(x -> new DealershipModel(x)).collect(Collectors.toList());
     }
 
     //POST DEALERSHIP
