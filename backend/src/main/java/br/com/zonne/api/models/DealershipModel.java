@@ -12,9 +12,13 @@ import javax.persistence.*;
 public class DealershipModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idDealership;
+
     private String dealershipName;
 
     public DealershipModel(DealershipModel entity){
+        idDealership = entity.getIdDealership();
         dealershipName = entity.getDealershipName();
     }
 }
