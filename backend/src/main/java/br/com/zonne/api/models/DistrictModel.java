@@ -11,7 +11,8 @@ import javax.persistence.*;
 public class DistrictModel {
 
     @Id
-    private String idDistrict ;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idDistrict ;
 
     private String districtName;
 
