@@ -54,7 +54,7 @@ public class DealershipServiceTest {
         DealershipModel dealership = new DealershipModel(1L, "dealershipTeste");
 
         Mockito.when(repository.findById(dealership.getIdDealership())).thenReturn(java.util.Optional.of(dealership));
-        
+
     }
 
 }
