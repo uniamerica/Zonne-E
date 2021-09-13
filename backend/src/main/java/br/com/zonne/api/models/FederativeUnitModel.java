@@ -12,11 +12,15 @@ import javax.persistence.*;
 public class FederativeUnitModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idFederativeUnit;
+
     private String federativeUnitName;
     private String federativeUnitPrefix;
 
 
     public FederativeUnitModel(FederativeUnitModel entity){
+        idFederativeUnit = entity.getIdFederativeUnit();
         federativeUnitName = entity.getFederativeUnitName();
         federativeUnitPrefix = entity.getFederativeUnitPrefix();
     }

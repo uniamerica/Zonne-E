@@ -6,6 +6,7 @@ import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -22,20 +23,28 @@ public class UserService {
     }
 
     public UserModel insert(UserModel user){
+
         Optional<UserModel> userModel = repository.findByCpf(user.getCpf());
-        if (userModel != null){
-            throw new ServiceException("User already exist");
+        if(userModel.isPresent()){
+            System.out.println("User already exists");
+            throw new ServiceException("User already exists");
+        }
+        System.out.println(userModel);
+
+        if (isCPF(user.getCpf()) == false){
+            System.out.println("CPF invalid, please try again");
+            throw new ServiceException("CPF invalid, please try again");
         }
         UserModel unit = new UserModel();
         unit.setCpf(user.getCpf());
         unit.setUserName(user.getUserName());
         unit.setUserLastName(user.getUserLastName());
         unit.setUserEmail(user.getUserEmail());
-        unit.setUserPassword(unit.getUserPassword());
+        unit.setUserPassword(user.getUserPassword());
 
         unit = repository.save(unit);
 
-        return new UserModel(unit);
+        return unit;
     }
 
     public UserModel findByCpf(String cpf) {
@@ -48,17 +57,7 @@ public class UserService {
     }
 
     public UserModel edit(String cpf, UserModel update){
-        UserModel updated = new UserModel();
-        UserModel userModel = findByCpf(cpf);
-        Optional<UserModel> checkUpdate = repository.findByCpf(update.getCpf());
-        if (checkUpdate != null){
-            throw new ServiceException("User already exist");
-        }
-        userModel.setCpf(update.getCpf());
-        userModel.setUserName(update.getUserName());
-        userModel.setUserLastName(update.getUserLastName());
-        userModel.setUserEmail(update.getUserEmail());
-        userModel.setUserPassword(update.getUserPassword());
+        UserModel updated = findByCpf(cpf);
 
         updated.setCpf(update.getCpf());
         updated.setUserName(update.getUserName());
@@ -66,10 +65,65 @@ public class UserService {
         updated.setUserEmail(update.getUserEmail());
         updated.setUserPassword(update.getUserPassword());
 
-        repository.save(userModel);
+        repository.save(updated);
 
         return updated;
     }
 
+    public static boolean isCPF(String CPF) {
+        // considera-se erro CPF's formados por uma sequencia de numeros iguais
+        if (CPF.equals("00000000000") ||
+                CPF.equals("11111111111") ||
+                CPF.equals("22222222222") || CPF.equals("33333333333") ||
+                CPF.equals("44444444444") || CPF.equals("55555555555") ||
+                CPF.equals("66666666666") || CPF.equals("77777777777") ||
+                CPF.equals("88888888888") || CPF.equals("99999999999") ||
+                (CPF.length() != 11))
+            return(false);
 
+        char dig10, dig11;
+        int sm, i, r, num, peso;
+
+        // "try" - protege o codigo para eventuais erros de conversao de tipo (int)
+        try {
+            sm = 0;
+            peso = 10;
+            for (i=0; i<9; i++) {
+                num = (int)(CPF.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso - 1;
+            }
+
+            r = 11 - (sm % 11);
+            if ((r == 10) || (r == 11))
+                dig10 = '0';
+            else dig10 = (char)(r + 48); // converte no respectivo caractere numerico
+
+            sm = 0;
+            peso = 11;
+            for(i=0; i<10; i++) {
+                num = (int)(CPF.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso - 1;
+            }
+
+            r = 11 - (sm % 11);
+            if ((r == 10) || (r == 11))
+                dig11 = '0';
+            else dig11 = (char)(r + 48);
+
+            // Verifica se os digitos calculados conferem com os digitos informados.
+            if ((dig10 == CPF.charAt(9)) && (dig11 == CPF.charAt(10)))
+                return(true);
+            else return(false);
+        } catch (InputMismatchException erro) {
+            return(false);
+        }
+    }
+
+    public static String imprimeCPF(String CPF) {
+        return(CPF.substring(0, 3) + "." + CPF.substring(3, 6) + "." +
+                CPF.substring(6, 9) + "-" + CPF.substring(9, 11));
+    }
 }
+

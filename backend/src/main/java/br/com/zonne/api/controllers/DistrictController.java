@@ -1,8 +1,8 @@
 package br.com.zonne.api.controllers;
 
-import br.com.zonne.api.models.FederativeUnitModel;
-import br.com.zonne.api.repositories.FederativeUnitRepository;
-import br.com.zonne.api.services.FederativeUnitService;
+import br.com.zonne.api.models.DistrictModel;
+import br.com.zonne.api.repositories.DistrictRepository;
+import br.com.zonne.api.services.DistrictService;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,32 +14,32 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/district")
-public class FederativeUnitController {
+public class DistrictController {
 
     @Autowired
-    private FederativeUnitService service;
-    private FederativeUnitRepository repository;
+    private DistrictService service;
+    private DistrictRepository repository;
 
     @GetMapping
-    public ResponseEntity<List<FederativeUnitModel>> findAll(){
-        List<FederativeUnitModel> list = service.findAll();
+    public ResponseEntity<List<DistrictModel>> findAll() {
+        List<DistrictModel> list = service.findAll();
         return ResponseEntity.ok(list);
     }
 
     @PostMapping
-    public ResponseEntity<FederativeUnitModel> insert(@RequestBody FederativeUnitModel entity) {
-        try{
-            FederativeUnitModel obj = service.insert(entity);
+    public ResponseEntity<DistrictModel> insert(@RequestBody DistrictModel entity) {
+        try {
+            DistrictModel obj = service.insert(entity);
             URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                    .buildAndExpand(obj.getIdFederativeUnit()).toUri();
+                    .buildAndExpand(obj.getIdDistrict()).toUri();
             return ResponseEntity.created(uri).body(obj);
-        } catch (ServiceException e){
+        } catch (ServiceException e) {
             return ResponseEntity.unprocessableEntity().build();
         }
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<FederativeUnitModel> findById(@PathVariable Long id) {
+    public ResponseEntity<DistrictModel> findById(@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
 }
