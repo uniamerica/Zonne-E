@@ -48,6 +48,26 @@ public class DealershipServiceTest {
         System.out.println(dealershipInserted);
 
     }
+    @Test
+    public void dealershipServiceTestEdit(){
+        DealershipModel dealershipTest = service.findById(1L);
+        DealershipModel dealershipToCompare = new DealershipModel(1L,"dealershipTeste");
+
+        dealershipTest.setDealershipName("James");
+
+        service.edit(1L, dealershipTest);
+
+        DealershipModel dealershipEdit = new DealershipModel();
+
+        dealershipEdit.setIdDealership(dealershipTest.getIdDealership());
+        dealershipEdit.setDealershipName(dealershipTest.getDealershipName());
+
+        Assertions.assertEquals(dealershipTest, dealershipEdit);
+        Assertions.assertNotEquals(dealershipToCompare, dealershipEdit);
+
+        System.out.println(" " + dealershipEdit.getIdDealership() + " " + dealershipEdit.getDealershipName());
+        System.out.println(" " + dealershipToCompare.getIdDealership() + " " + dealershipToCompare.getDealershipName());
+    }
 
     @Before
     public void setup(){
