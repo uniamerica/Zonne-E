@@ -18,7 +18,6 @@ public class UserController {
 
     @Autowired
     private UserService service;
-    private UserRepository repository;
 
     @GetMapping
     public ResponseEntity<List<UserModel>> findAll(){

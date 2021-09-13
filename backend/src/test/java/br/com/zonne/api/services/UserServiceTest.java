@@ -2,9 +2,11 @@ package br.com.zonne.api.services;
 
 import br.com.zonne.api.models.UserModel;
 import br.com.zonne.api.repositories.UserRepository;
+import org.hibernate.service.spi.ServiceException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 public class UserServiceTest {
@@ -32,23 +36,20 @@ public class UserServiceTest {
     UserRepository repository;
 
     @Test
-    public void userServiceTestFindByCpf(){
+    @DisplayName("Deve retornar sucesso quando buscar um usuario")
+    public void shouldReturnSuccess_WhenFindUser(){
         String cpf = "12006934937";
         UserModel userTest = service.findByCpf(cpf);
         Assertions.assertEquals(userTest.getCpf(), cpf);
     }
 
     @Test
-    public void userServiceTestInsertUser(){
-        UserModel userTest = new UserModel("12006934937", "John", "Doe", "email@email.com", "1234");
-        Mockito.when(repository.save(userTest)).thenReturn(userTest);
-        UserModel userInserted = service.findByCpf("12006934937");
-
-        Assertions.assertEquals(userTest, userInserted);
-        Assertions.assertNotNull(userInserted);
-        System.out.println(userInserted);
-
+    @DisplayName("Deve retornar não encontrado quando buscar um usuario")
+    public void shouldReturnNotFound_WhenFindUser(){
+        String cpf = "32220765962";
+        Assertions.assertThrows(ServiceException.class, () -> service.findByCpf(cpf) );
     }
+
 
     @Test
     public void userServiceTestEdit(){
@@ -75,11 +76,31 @@ public class UserServiceTest {
         System.out.println(" " + userToCompare.getCpf() + " " + userToCompare.getUserName() + " " + userToCompare.getUserLastName() + " " + userToCompare.getUserEmail() + " " + userToCompare.getUserPassword());
     }
 
+    @Test
+    @DisplayName("Deve retornar cpf invalido quando inserir usuario")
+    public void shouldReturnCpfInvalid_WhenInsideUser(){
+        UserModel userTest = new UserModel("1523", "Nome", "sobreNome", "teste@teste.com", "1234");
+        Assertions.assertThrows(ServiceException.class, () -> service.insert(userTest) );
+    }
+
+    @Test
+    @DisplayName("Deve retornar sucesso quando inserir usuario")
+    public void shouldReturnSuccess_WhenInsideUser(){
+        UserModel userTest = new UserModel("32220765962", "Nome", "sobreNome", "@.com", "1234");
+        Assertions.assertDoesNotThrow(() -> service.insert(userTest) );
+    }
+
+    @Test
+    @DisplayName("Deve retornar uma exception quando inserir usuario existente")
+    public void shouldReturnException_WhenInsideExistentUser(){
+        UserModel userTest = new UserModel("12006934937", "Nome", "sobreNome", "@.com", "1234");
+        Assertions.assertThrows(ServiceException.class, () -> service.insert(userTest) );
+    }
+
     @Before
     public void setup(){
         UserModel user = new UserModel("12006934937", "John", "Doe", "email@email.com", "1234");
 
         Mockito.when(repository.findByCpf(user.getCpf())).thenReturn(java.util.Optional.of(user));
-
     }
 }
