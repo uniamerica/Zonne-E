@@ -1,5 +1,6 @@
 package br.com.zonne.api.services;
 
+import br.com.zonne.api.models.DealershipModel;
 import br.com.zonne.api.models.DistrictModel;
 import br.com.zonne.api.repositories.DistrictRepository;
 import org.hibernate.service.spi.ServiceException;
@@ -38,5 +39,16 @@ public class DistrictService {
     public DistrictModel findById(Long id) {
         Optional<DistrictModel> result = repository.findById(id);
         return result.orElseThrow(() -> new ServiceException("District not found. Please try again."));
+    }
+
+    public DistrictModel edit(Long id, DistrictModel update){
+        DistrictModel updated = findById(id);
+
+        updated.setIdDistrict(update.getIdDistrict());
+        updated.setDistrictName(update.getDistrictName());
+
+        repository.save(update);
+
+        return updated;
     }
 }

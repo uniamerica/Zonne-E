@@ -1,6 +1,5 @@
 package br.com.zonne.api.models;
 
-import br.com.zonne.api.controllers.DeviceController;
 import lombok.*;
 import javax.persistence.*;
 
@@ -13,15 +12,20 @@ import javax.persistence.*;
 public class DeviceModel {
 
     @Id
-    private Double deviceValueKw;
-    private Double deviceValueBasic;
-    private Double deviceValueIlum;
-    private Double deviceValueSolarPanel;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idDevice;
+
+    private String  deviceValueKw;
+    private String deviceValueBasic;
+    private String deviceValueIlum;
+    private String deviceValueSolarPanel;
 
     public DeviceModel(DeviceModel entity){
+        idDevice = entity.getIdDevice();
         deviceValueKw = entity.getDeviceValueKw();
         deviceValueBasic = entity.getDeviceValueBasic();
-        deviceValueBasic = entity.getDeviceValueIlum();
-        deviceValueBasic = entity.getDeviceValueSolarPanel();
+        deviceValueIlum = entity.getDeviceValueIlum();
+        deviceValueSolarPanel = entity.getDeviceValueSolarPanel();
     }
+
 }

@@ -40,4 +40,16 @@ public class DealershipService {
         Optional<DealershipModel> result = repository.findById(id);
         return result.orElseThrow(() -> new ServiceException("District not found. Please try again."));
     }
+
+    //EDIT DEALERSHIP
+    public DealershipModel edit(Long id, DealershipModel update){
+        DealershipModel updated = findById(id);
+
+        updated.setIdDealership(update.getIdDealership());
+        updated.setDealershipName(update.getDealershipName());
+
+        repository.save(update);
+
+        return updated;
+    }
 }
