@@ -25,6 +25,16 @@ public class DealershipService {
 
     //POST DEALERSHIP
     public DealershipModel insert(DealershipModel dealership){
+
+        Optional<DealershipModel> dealershipModel = repository.findByName(dealership.getDealershipName());
+        if(dealershipModel.isPresent()){
+            System.out.println("Dealership already exists");
+            throw new ServiceException("Dealership already exists");
+        }
+        if(dealershipModel.isEmpty()){
+            System.out.println(" Insert valid DealershipName ");
+            throw new ServiceException("Insert valid DealershipName ");
+        }
         DealershipModel unit = new DealershipModel();
 
         unit.setIdDealership(dealership.getIdDealership());
