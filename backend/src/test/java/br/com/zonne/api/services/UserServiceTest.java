@@ -1,5 +1,8 @@
 package br.com.zonne.api.services;
 
+import br.com.zonne.api.exceptions.CpfInvalidException;
+import br.com.zonne.api.exceptions.UserAlreadyExistsException;
+import br.com.zonne.api.exceptions.UserNotFoundException;
 import br.com.zonne.api.models.UserModel;
 import br.com.zonne.api.repositories.UserRepository;
 import org.hibernate.service.spi.ServiceException;
@@ -47,7 +50,7 @@ public class UserServiceTest {
     @DisplayName("Deve retornar não encontrado quando buscar um usuario")
     public void shouldReturnNotFound_WhenFindUser(){
         String cpf = "32220765962";
-        Assertions.assertThrows(ServiceException.class, () -> service.findByCpf(cpf) );
+        Assertions.assertThrows(UserNotFoundException.class, () -> service.findByCpf(cpf) );
     }
 
 
@@ -80,7 +83,7 @@ public class UserServiceTest {
     @DisplayName("Deve retornar cpf invalido quando inserir usuario")
     public void shouldReturnCpfInvalid_WhenInsideUser(){
         UserModel userTest = new UserModel("1523", "Nome", "sobreNome", "teste@teste.com", "1234");
-        Assertions.assertThrows(ServiceException.class, () -> service.insert(userTest) );
+        Assertions.assertThrows(CpfInvalidException.class, () -> service.insert(userTest) );
     }
 
     @Test
@@ -94,7 +97,7 @@ public class UserServiceTest {
     @DisplayName("Deve retornar uma exception quando inserir usuario existente")
     public void shouldReturnException_WhenInsideExistentUser(){
         UserModel userTest = new UserModel("12006934937", "Nome", "sobreNome", "@.com", "1234");
-        Assertions.assertThrows(ServiceException.class, () -> service.insert(userTest) );
+        Assertions.assertThrows(UserAlreadyExistsException.class, () -> service.insert(userTest) );
     }
 
     @Before

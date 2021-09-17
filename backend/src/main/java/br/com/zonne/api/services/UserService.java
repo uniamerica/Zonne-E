@@ -1,5 +1,8 @@
 package br.com.zonne.api.services;
 
+import br.com.zonne.api.exceptions.CpfInvalidException;
+import br.com.zonne.api.exceptions.UserAlreadyExistsException;
+import br.com.zonne.api.exceptions.UserNotFoundException;
 import br.com.zonne.api.models.UserModel;
 import br.com.zonne.api.repositories.UserRepository;
 import org.hibernate.service.spi.ServiceException;
@@ -26,14 +29,12 @@ public class UserService {
 
         Optional<UserModel> userModel = repository.findByCpf(user.getCpf());
         if(userModel.isPresent()){
-            System.out.println("User already exists");
-            throw new ServiceException("User already exists");
+            throw new UserAlreadyExistsException("User already exists");
         }
         System.out.println(userModel);
 
         if (isCPF(user.getCpf()) == false){
-            System.out.println("CPF invalid, please try again");
-            throw new ServiceException("CPF invalid, please try again");
+            throw new CpfInvalidException("CPF invalid, please try again");
         }
         UserModel unit = new UserModel();
         unit.setCpf(user.getCpf());
@@ -49,7 +50,7 @@ public class UserService {
 
     public UserModel findByCpf(String cpf) {
         Optional<UserModel> result = repository.findByCpf(cpf);
-        return result.orElseThrow(() -> new ServiceException("User not found. Please try again."));
+        return result.orElseThrow(() -> new UserNotFoundException("User not found. Please try again."));
     }
 
     public void deleteByCpf(String cpf){
