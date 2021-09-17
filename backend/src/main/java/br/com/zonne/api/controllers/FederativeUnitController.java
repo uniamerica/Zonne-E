@@ -13,7 +13,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/district")
+@RequestMapping(value = "/federative-unit")
 public class FederativeUnitController {
 
     @Autowired
