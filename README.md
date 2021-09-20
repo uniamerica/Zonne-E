@@ -1,2 +1,2 @@
 # Zonne-E
-Monitoramento a qualquer momento
+Monitoramento a qualquer momento.
