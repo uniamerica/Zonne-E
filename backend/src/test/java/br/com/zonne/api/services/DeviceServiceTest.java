@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class DeviceServiceTest {
 
     @TestConfiguration
-    static class UserServiceTestConfiguration{
+    static class DeviceServiceTestConfiguration{
 
         @Bean
         public DeviceService deviceService(){
