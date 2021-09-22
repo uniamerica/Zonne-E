@@ -23,6 +23,16 @@ public class FederativeUnitService {
 
     //POST FEDERATIVEUNIT
     public FederativeUnitModel insert(FederativeUnitModel federativeUnit){
+
+        Optional<FederativeUnitModel> federativeUnitModel = repository.findByFederativeUnitName(federativeUnit.getFederativeUnitName());
+        if(federativeUnitModel.isPresent()){
+            System.out.println("FederativeUnit already exists");
+            throw new ServiceException("FederativeUnit already exists");
+        }
+        if(federativeUnitModel.isEmpty()){
+            System.out.println("Insert valid FederativeUnit ");
+            throw new ServiceException("Insert valid FederativeUnit ");
+        }
         FederativeUnitModel unit = new FederativeUnitModel();
 
         unit.setIdFederativeUnit(federativeUnit.getIdFederativeUnit());
@@ -38,5 +48,18 @@ public class FederativeUnitService {
     public FederativeUnitModel findById(Long id){
         Optional<FederativeUnitModel> result = repository.findById(id);
         return result.orElseThrow(() -> new ServiceException("District not found. Please try again."));
+    }
+
+    //EDIT FEDERATIVE_UNIT
+    public FederativeUnitModel edit(Long id,FederativeUnitModel update){
+        FederativeUnitModel updated = findById(id);
+
+        updated.setIdFederativeUnit(update.getIdFederativeUnit());
+        updated.setFederativeUnitName(update.getFederativeUnitName());
+        updated.setFederativeUnitPrefix(update.getFederativeUnitPrefix());
+
+        repository.save(update);
+
+        return updated;
     }
 }
