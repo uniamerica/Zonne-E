@@ -3,30 +3,32 @@ package br.com.zonne.api.services;
 import br.com.zonne.api.models.DealershipModel;
 import br.com.zonne.api.models.DistrictModel;
 import br.com.zonne.api.repositories.DistrictRepository;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-import org.junit.runner.RunWith;
+
+
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
 
 @SpringBootTest
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class DistrictServiceTest {
 
-    @TestConfiguration
-    static class DistrictServiceTestConfiguration {
-
-        @Bean
-        public DistrictService districtService() {
-            return new DistrictService();
-        }
-    }
+//    @TestConfiguration
+//    static class DistrictServiceTestConfiguration {
+//
+//        @Bean
+//        public DistrictService districtService() {
+//            return new DistrictService();
+//        }
+//    }
 
     @Autowired
     DistrictService service;
@@ -72,7 +74,7 @@ public class DistrictServiceTest {
         System.out.println(" " + districtToCompare.getIdDistrict() + " " + districtToCompare.getDistrictName());
     }
 
-    @Before
+    @BeforeEach
     public void setup(){
         DistrictModel district = new DistrictModel(1L, "bairroTeste");
 

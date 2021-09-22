@@ -3,38 +3,37 @@ package br.com.zonne.api.services;
 import br.com.zonne.api.exceptions.CpfInvalidException;
 import br.com.zonne.api.exceptions.UserAlreadyExistsException;
 import br.com.zonne.api.exceptions.UserNotFoundException;
+import br.com.zonne.api.models.DistrictModel;
 import br.com.zonne.api.models.UserModel;
 import br.com.zonne.api.repositories.UserRepository;
-import org.hibernate.service.spi.ServiceException;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.runner.RunWith;
+
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.Optional;
 @SpringBootTest
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class UserServiceTest {
 
-    @TestConfiguration
-    static class UserServiceTestConfiguration{
-
-        @Bean
-        public UserService userService(){
-            return new UserService();
-        }
-    }
+//    @TestConfiguration
+//    static class UserServiceTestConfiguration{
+//
+//        @Bean
+//        public UserService userService(){
+//            return new UserService();
+//        }
+//    }
 
     @Autowired
     UserService service;
+
 
     @MockBean
     UserRepository repository;
@@ -101,10 +100,9 @@ public class UserServiceTest {
         Assertions.assertThrows(UserAlreadyExistsException.class, () -> service.insert(userTest) );
     }
 
-    @Before
+    @BeforeEach
     public void setup(){
         UserModel user = new UserModel("12006934937", "John", "Doe", "email@email.com", "1234");
-
         Mockito.when(repository.findByCpf(user.getCpf())).thenReturn(java.util.Optional.of(user));
     }
 }

@@ -2,30 +2,32 @@ package br.com.zonne.api.services;
 
 import br.com.zonne.api.models.DeviceModel;
 import br.com.zonne.api.repositories.DeviceRepository;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-import org.junit.runner.RunWith;
+
+
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
 
 @SpringBootTest
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class DeviceServiceTest {
 
-    @TestConfiguration
-    static class UserServiceTestConfiguration{
-
-        @Bean
-        public DeviceService deviceService(){
-            return new DeviceService();
-        }
-    }
+//    @TestConfiguration
+//    static class UserServiceTestConfiguration{
+//
+//        @Bean
+//        public DeviceService deviceService(){
+//            return new DeviceService();
+//        }
+//    }
 
     @Autowired
     DeviceService service;
@@ -75,7 +77,7 @@ public class DeviceServiceTest {
 
     }
 
-    @Before
+    @BeforeEach
     public void setup(){
         DeviceModel device = new DeviceModel(1L,"100","50","200","80");
 
