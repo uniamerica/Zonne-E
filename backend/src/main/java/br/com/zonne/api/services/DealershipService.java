@@ -27,7 +27,6 @@ public class DealershipService {
     public DealershipModel insert(DealershipModel dealership){
 
         Optional<DealershipModel> dealershipModel = repository.findByDealershipName(dealership.getDealershipName());
-        System.out.println(dealershipModel);
         if(dealershipModel.isPresent()){
             System.out.println("Dealership already exists");
             throw new ServiceException("Dealership already exists");

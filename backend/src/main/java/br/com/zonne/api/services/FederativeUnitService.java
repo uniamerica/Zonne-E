@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 @Service
 public class FederativeUnitService {
 
@@ -29,9 +30,11 @@ public class FederativeUnitService {
             System.out.println("FederativeUnit already exists");
             throw new ServiceException("FederativeUnit already exists");
         }
-        if(federativeUnitModel.isEmpty()){
-            System.out.println("Insert valid FederativeUnit ");
-            throw new ServiceException("Insert valid FederativeUnit ");
+        FederativeUnitModel federativeUnitTestName = new FederativeUnitModel();
+        federativeUnitTestName.setFederativeUnitName(federativeUnit.getFederativeUnitName());
+        if(federativeUnitTestName.getFederativeUnitName() == null ){
+            System.out.println("Insert valid FederativeUnitName ");
+            throw new ServiceException("Insert valid FederativeUnitName ");
         }
         FederativeUnitModel unit = new FederativeUnitModel();
 
