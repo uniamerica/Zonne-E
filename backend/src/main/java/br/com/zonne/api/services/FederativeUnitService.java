@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 @Service
 public class FederativeUnitService {
 
@@ -23,6 +24,18 @@ public class FederativeUnitService {
 
     //POST FEDERATIVEUNIT
     public FederativeUnitModel insert(FederativeUnitModel federativeUnit){
+
+        Optional<FederativeUnitModel> federativeUnitModel = repository.findByFederativeUnitName(federativeUnit.getFederativeUnitName());
+        if(federativeUnitModel.isPresent()){
+            System.out.println("FederativeUnit already exists");
+            throw new ServiceException("FederativeUnit already exists");
+        }
+        FederativeUnitModel federativeUnitTestName = new FederativeUnitModel();
+        federativeUnitTestName.setFederativeUnitName(federativeUnit.getFederativeUnitName());
+        if(federativeUnitTestName.getFederativeUnitName() == null ){
+            System.out.println("Insert valid FederativeUnitName ");
+            throw new ServiceException("Insert valid FederativeUnitName ");
+        }
         FederativeUnitModel unit = new FederativeUnitModel();
 
         unit.setIdFederativeUnit(federativeUnit.getIdFederativeUnit());
@@ -38,5 +51,18 @@ public class FederativeUnitService {
     public FederativeUnitModel findById(Long id){
         Optional<FederativeUnitModel> result = repository.findById(id);
         return result.orElseThrow(() -> new ServiceException("District not found. Please try again."));
+    }
+
+    //EDIT FEDERATIVE_UNIT
+    public FederativeUnitModel edit(Long id,FederativeUnitModel update){
+        FederativeUnitModel updated = findById(id);
+
+        updated.setIdFederativeUnit(update.getIdFederativeUnit());
+        updated.setFederativeUnitName(update.getFederativeUnitName());
+        updated.setFederativeUnitPrefix(update.getFederativeUnitPrefix());
+
+        repository.save(update);
+
+        return updated;
     }
 }
