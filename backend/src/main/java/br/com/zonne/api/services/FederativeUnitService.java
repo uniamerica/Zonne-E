@@ -33,8 +33,8 @@ public class FederativeUnitService {
         FederativeUnitModel federativeUnitTestName = new FederativeUnitModel();
         federativeUnitTestName.setFederativeUnitName(federativeUnit.getFederativeUnitName());
         if(federativeUnitTestName.getFederativeUnitName() == null ){
-            System.out.println("Insert valid FederativeUnitName ");
-            throw new ServiceException("Insert valid FederativeUnitName ");
+            System.out.println("Insert valid Name ");
+            throw new ServiceException("Insert valid Name ");
         }
         FederativeUnitModel unit = new FederativeUnitModel();
 
