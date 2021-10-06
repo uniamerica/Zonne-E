@@ -129,7 +129,7 @@ public class DealershipControllerTest {
 
     @Test
     @DisplayName("Retornar status code 404 quando deletar dealershipName inexistente")
-    public void shouldReturnStatusCode404_WhenDeleteUnexistingDealershipName() throws  Exception {
+    public void shouldReturnStatusCode404_WhenDeleteUnexistingDealership() throws  Exception {
         this.mockMvc.perform(MockMvcRequestBuilders.delete("/dealership/1"))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }

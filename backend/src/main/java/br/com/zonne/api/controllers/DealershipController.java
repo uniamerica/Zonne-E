@@ -30,6 +30,11 @@ public class DealershipController {
 //        return ResponseEntity.ok(service.findById(name));
 //    }
 
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<DealershipModel> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findById(id));
+    }
+
     @PostMapping
     public ResponseEntity<DealershipModel> insert(@RequestBody DealershipModel entity) {
         try {
@@ -42,10 +47,6 @@ public class DealershipController {
     }
 }
 
-    @GetMapping(path = "/{id}")
-    public ResponseEntity<DealershipModel> findById(@PathVariable Long id) {
-        return ResponseEntity.ok(service.findById(id));
-    }
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Long id ){
         service.deleteById(id);
