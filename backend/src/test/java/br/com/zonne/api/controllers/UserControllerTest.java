@@ -85,7 +85,7 @@ public class UserControllerTest{
 
         this.mockMvc.perform(MockMvcRequestBuilders.post("/user")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(json))
+                .content(json2))
                 .andExpect(MockMvcResultMatchers.status().isUnprocessableEntity());
     }
 
