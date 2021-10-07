@@ -1,5 +1,6 @@
 package br.com.zonne.api.services;
 
+import br.com.zonne.api.exceptions.DealershipNotFoundException;
 import br.com.zonne.api.models.DealershipModel;
 import br.com.zonne.api.models.DistrictModel;
 import br.com.zonne.api.repositories.DealershipRepository;
@@ -31,7 +32,9 @@ public class DealershipService {
             System.out.println("Dealership already exists");
             throw new ServiceException("Dealership already exists");
         }
-        if(dealershipModel.isEmpty()){
+        DealershipModel dealershipTestName = new DealershipModel();
+        dealershipTestName.setDealershipName(dealership.getDealershipName());
+        if(dealershipTestName.getDealershipName() == null){
             System.out.println(" Insert valid DealershipName ");
             throw new ServiceException("Insert valid DealershipName ");
         }
@@ -48,7 +51,7 @@ public class DealershipService {
     //FIND BY ID
     public  DealershipModel findById(Long id){
         Optional<DealershipModel> result = repository.findById(id);
-        return result.orElseThrow(() -> new ServiceException("District not found. Please try again."));
+        return result.orElseThrow(() -> new DealershipNotFoundException("District not found. Please try again."));
     }
 
     //EDIT DEALERSHIP
@@ -61,5 +64,8 @@ public class DealershipService {
         repository.save(update);
 
         return updated;
+    }
+    public void deleteById(Long id) {
+        repository.delete(findById(id));
     }
 }

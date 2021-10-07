@@ -1,5 +1,6 @@
 package br.com.zonne.api.services;
 
+import br.com.zonne.api.exceptions.DeviceAcceptedException;
 import br.com.zonne.api.models.DeviceModel;
 import br.com.zonne.api.repositories.DeviceRepository;
 import org.hibernate.service.spi.ServiceException;
@@ -38,7 +39,7 @@ public class DeviceService {
 
     public DeviceModel findById(long id) {
         Optional<DeviceModel> result = repository.findById(id);
-        return result.orElseThrow(() -> new ServiceException("Device not found."));
+        return result.orElseThrow(() -> new DeviceAcceptedException("Device not found."));
     }
     public DeviceModel edit(Long idDevice, DeviceModel update){
         DeviceModel updated = findById(idDevice);

@@ -1,12 +1,11 @@
-package br.com.zonne.api.services;
+package br.com.zonne.api.controllers;
 
 import br.com.zonne.api.controllers.DeviceController;
 import br.com.zonne.api.models.DeviceModel;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,8 +32,8 @@ public class DeviceControllerTest {
     }
 
     @Test
-    @DisplayName("201")
-    public void testAddValues() throws Exception {
+    @DisplayName("Retorna status code 201 quando adicionar dados")
+    public void shouldReturnStatusCode201_WhenCreateDeviceWithCorrectData() throws Exception {
         DeviceModel device = new DeviceModel (1l,"550","376","900","238");
 
         ObjectMapper mapper = new ObjectMapper();
@@ -42,8 +41,9 @@ public class DeviceControllerTest {
         String json = mapper.writeValueAsString(device);
 
         this.mockMvc.perform(MockMvcRequestBuilders.post("/device")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(json))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json))
                 .andExpect(MockMvcResultMatchers.status().isCreated());
     }
 }
+

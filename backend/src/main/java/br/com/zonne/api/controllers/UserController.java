@@ -41,4 +41,10 @@ public class UserController {
             return ResponseEntity.unprocessableEntity().build();
         }
     }
+
+    @DeleteMapping(path = "/{cpf}")
+    public ResponseEntity<String> deleteByCpf(@PathVariable String cpf){
+        service.deleteByCpf(cpf);
+        return ResponseEntity.ok("User " + cpf + " deleted!");
+    }
 }

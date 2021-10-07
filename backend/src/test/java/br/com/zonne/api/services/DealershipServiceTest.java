@@ -3,30 +3,31 @@ package br.com.zonne.api.services;
 import br.com.zonne.api.models.DealershipModel;
 import br.com.zonne.api.repositories.DealershipRepository;
 import org.hibernate.service.spi.ServiceException;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.runner.RunWith;
+
+
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
 
 @SpringBootTest
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class DealershipServiceTest {
 
-    @TestConfiguration
-    static class DealershipServiceTestConfiguration {
-
-        @Bean
-        public DealershipService dealershipService(){ return new DealershipService(); }
-
-    }
+//    @TestConfiguration
+//    static class DealershipServiceTestConfiguration {
+//
+//        @Bean
+//        public DealershipService dealershipService(){ return new DealershipService(); }
+//
+//    }
 
     @Autowired
     DealershipService service;
@@ -91,10 +92,10 @@ public class DealershipServiceTest {
         Assertions.assertThrows(ServiceException.class, () -> service.insert(dealershipTest) );
     }
 
-    @Before
+    @BeforeEach
     public void setup(){
         DealershipModel dealership = new DealershipModel(1L, "dealershipTeste");
-
+        Mockito.when(repository.findByDealershipName(dealership.getDealershipName())).thenReturn(java.util.Optional.of(dealership));
         Mockito.when(repository.findById(dealership.getIdDealership())).thenReturn(java.util.Optional.of(dealership));
 
     }

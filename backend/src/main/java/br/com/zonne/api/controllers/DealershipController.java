@@ -1,7 +1,6 @@
 package br.com.zonne.api.controllers;
 
 import br.com.zonne.api.models.DealershipModel;
-import br.com.zonne.api.models.DistrictModel;
 import br.com.zonne.api.repositories.DealershipRepository;
 import br.com.zonne.api.services.DealershipService;
 import org.hibernate.service.spi.ServiceException;
@@ -26,6 +25,15 @@ public class DealershipController {
         List<DealershipModel> list = service.findAll();
         return ResponseEntity.ok(list);
     }
+//    @GetMapping(path = "/{name}")
+//    public ResponseEntity<DealershipModel> findByDealershipName(@PathVariable String name){
+//        return ResponseEntity.ok(service.findById(name));
+//    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<DealershipModel> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findById(id));
+    }
 
     @PostMapping
     public ResponseEntity<DealershipModel> insert(@RequestBody DealershipModel entity) {
@@ -39,8 +47,10 @@ public class DealershipController {
     }
 }
 
-    @GetMapping(path = "/{id}")
-    public ResponseEntity<DealershipModel> findById(@PathVariable Long id) {
-        return ResponseEntity.ok(service.findById(id));
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<String> deleteById(@PathVariable Long id ){
+        service.deleteById(id);
+        return ResponseEntity.ok("Dealership " + id + " deleted!");
     }
 }
+
