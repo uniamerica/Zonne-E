@@ -18,14 +18,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 public class DeviceServiceTest {
 
-    @TestConfiguration
-    static class DeviceServiceTestConfiguration{
-
-        @Bean
-        public DeviceService deviceService(){
-            return new DeviceService();
-        }
-    }
+//    @TestConfiguration
+//    static class DeviceServiceTestConfiguration{
+//
+//        @Bean
+//        public DeviceService deviceService(){
+//            return new DeviceService();
+//        }
+//    }
 
     @Autowired
     DeviceService service;
