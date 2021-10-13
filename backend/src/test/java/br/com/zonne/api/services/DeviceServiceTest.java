@@ -3,7 +3,6 @@ package br.com.zonne.api.services;
 import br.com.zonne.api.models.DeviceModel;
 import br.com.zonne.api.repositories.DeviceRepository;
 
-
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 
