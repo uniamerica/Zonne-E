@@ -1,5 +1,6 @@
 package br.com.zonne.api.services;
 
+import br.com.zonne.api.exceptions.DistrictNotFoundException;
 import br.com.zonne.api.models.DealershipModel;
 import br.com.zonne.api.models.DistrictModel;
 import br.com.zonne.api.repositories.DistrictRepository;
@@ -38,7 +39,7 @@ public class DistrictService {
     // FIND BY ID
     public DistrictModel findById(Long id) {
         Optional<DistrictModel> result = repository.findById(id);
-        return result.orElseThrow(() -> new ServiceException("District not found. Please try again."));
+        return result.orElseThrow(() -> new DistrictNotFoundException("District not found. Please try again."));
     }
 
     public DistrictModel edit(Long id, DistrictModel update){
@@ -50,5 +51,9 @@ public class DistrictService {
         repository.save(update);
 
         return updated;
+    }
+
+    public void deleteById(Long id) {
+        repository.delete(findById(id));
     }
 }

@@ -74,11 +74,26 @@ public class DistrictServiceTest {
         System.out.println(" " + districtToCompare.getIdDistrict() + " " + districtToCompare.getDistrictName());
     }
 
+    @Test
+    @DisplayName("Retorna district invalido quando inserir districtName")
+    public void shouldReturnNameInvalid_WhenInsideDistrict(){
+        DistrictModel districtTest = new DistrictModel(1L,null);
+        Assertions.assertDoesNotThrow(() -> service.insert(districtTest) );
+    }
+
+    @Test
+    @DisplayName("Retorna sucesso quando inserir districtName")
+    public void shouldReturnSucess_WhenInsideDistrict(){
+        DistrictModel districtTest = new DistrictModel(1L,"districtTeste1");
+        Assertions.assertDoesNotThrow(() -> service.insert(districtTest) );
+    }
+
+
     @BeforeEach
     public void setup(){
         DistrictModel district = new DistrictModel(1L, "bairroTeste");
 
         Mockito.when(repository.findById(district.getIdDistrict())).thenReturn(java.util.Optional.of(district));
-
+        Mockito.when(repository.findByDistrictName(district.getDistrictName())).thenReturn(java.util.Optional.of(district));
     }
 }
