@@ -3,7 +3,6 @@ package br.com.zonne.api.services;
 import br.com.zonne.api.models.DeviceModel;
 import br.com.zonne.api.repositories.DeviceRepository;
 
-
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -21,14 +20,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class DeviceServiceTest {
 
 
-//    @TestConfiguration
-//    static class UserServiceTestConfiguration{
-//
-//        @Bean
-//        public DeviceService deviceService(){
-//            return new DeviceService();
-//        }
-//    }
 
     @Autowired
     DeviceService service;
