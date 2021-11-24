@@ -1,0 +1,46 @@
+.container-header-navBar{
+    background-color: rgba(0, 0, 0, 0.13);
+}
+.container-header-ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-around;
+  width: 1444px;
+  margin: 0 auto;
+}
+.nav-bar{
+    text-decoration: none;
+}
+.header-li{
+    list-style: none;
+}
+.nav-bar-logo{
+    padding: 5px;
+    width: 242px;
+    height: 63px;
+}
+.nav-bar-shop{
+    width: 50;
+    height: 45;
+}
+.text-header{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bolder;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #F6AE2D;
+    transition: 0.3s;
+}
+.text-header-off{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bolder;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: white;
+    transition: 0.3s;
+}
+.text-header:active{
+    color: white;
+}
