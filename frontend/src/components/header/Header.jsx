@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../public/zonne.png";
+import Logo from "../../public/zonne.png";
 import shopCartOff from "../../public/shopCart.png";
 import shopCart from "../../public/shopCartWhite.png";
 import "./header.css";
@@ -13,6 +13,7 @@ function Header() {
   const [login, setLogin] = useState(false);
   const [cadastro, setCadastro] = useState(false);
   const [shop, setShop] = useState(false);
+  const [navBar, setNavBar] = useState(false);
 
   const handleChangeHome = (e) => {
     e.preventDefault();
@@ -84,9 +85,20 @@ function Header() {
     setCadastro(false);
     setShop(true);
   };
+  const changeBackGround = () => {
+
+    if(window.scrollY >= 80){
+      setNavBar(true);
+    }else{
+      setNavBar(false);
+    }
+  }
+
+  window.addEventListener('scroll', changeBackGround);
+
   return (
     <header className="container-header">
-      <nav className="container-header-navBar">
+      <nav className={navBar ? "container-header-navBar active" : "container-header-navBar"}>
         <ul className="container-header-ul">
           <li className="header-li" onClick={handleChangeHome}>
             <Link className="nav-bar" to="/">
@@ -114,10 +126,10 @@ function Header() {
               <div className={faq ? "text-header-off" : "text-header"}>Faq</div>
             </Link>
           </li>
-          <li className="header-li">
+          <li className="header-li" onClick={handleChangeHome}>
             <Link to="/">
               <div className="nav-bar-logo">
-                <img src={logo} width="242" height="63"></img>
+                <img src={Logo} width="242" height="63"></img>
               </div>
             </Link>
           </li>

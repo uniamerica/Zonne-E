@@ -3,11 +3,14 @@ import Home from "./pages/Home/Home";
 import Produto from "./pages/Produto/Produto";
 import NotFound from "./pages/NotFound/NotFound";
 import Header from "./components/header/Header";
+import ScrollToTop from "./components/ScrollToTop";
+import "./App.css";
 
 function App() {
   return (
     <Router>
-      <Header/>
+      <ScrollToTop />
+      <Header className="header-app"/>
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/produto" component={Produto} />
