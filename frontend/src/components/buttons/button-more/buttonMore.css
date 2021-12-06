@@ -1,0 +1,14 @@
+.btn-more {
+  width: 126px;
+  height: 39px;
+  background: #f6ae2d;
+  border-radius: 4px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+}

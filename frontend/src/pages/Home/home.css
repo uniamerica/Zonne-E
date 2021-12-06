@@ -1,5 +1,152 @@
-.container-home{
-    position: relative;
-    width: 1444px;
-    margin: 0 auto;
+.container-home {
+  position: relative;
+  width: 1444px;
+  margin: 0 auto;
+  display: flex;
+  
+}
+.card-1 {
+  max-width: 527px;
+}
+.card-1 .title-card-home {
+  position: absolute;
+  width: 527px;
+  height: 177.97px;
+  left: 808px;
+  top: 186px;
+
+  font-family: "Russo One", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 77px;
+  text-align: right;
+
+  color: #ffffff;
+
+  text-shadow: 0px 4px 4px #000000;
+}
+.card-1 .p-card-home {
+  position: absolute;
+  width: 495px;
+  height: 363.85px;
+  left: 840px;
+  top: 406.15px;
+
+  font-family: "Russo One", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 43px;
+  text-align: right;
+
+  color: #ffffff;
+
+  text-shadow: 0px 4px 4px #000000;
+}
+.cards-home {
+  position: absolute;
+  width: 433px;
+  height: 435px;
+  left: 47px;
+  top: 625px;
+  background: rgba(0, 0, 0, 0.71);
+  border-radius: 38px;
+}
+.cards-home .title-cards {
+  position: absolute;
+  left: 9.47%;
+  right: 9.47%;
+  top: 6.67%;
+  bottom: 60.69%;
+
+  font-family: "Russo One", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 58px;
+
+  color: #f6ae2d;
+}
+.cards-home .p-cards {
+  position: absolute;
+  left: 9.7%;
+  right: 9.7%;
+  top: 53.33%;
+  bottom: 13.1%;
+
+  font-family: "Russo One", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: #ffffff;
+}
+.card-2 {
+  position: absolute;
+  width: 471px;
+  height: 327px;
+  left: 864px;
+  top: 1173px;
+}
+.card-2 .title-section_hand-home {
+  position: relative;
+  font-family: "Russo One", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 58px;
+  text-align: right;
+
+  color: #f6ae2d;
+}
+.card-2 .p-section_hand-home {
+  position: relative;
+  font-family: "Russo One", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+
+  color: #13315c;
+}
+#btn-section_hand-home {
+  position: relative;
+  left: 345px;
+}
+#card-2-section-solarPaenl{
+  position: absolute;
+width: 433px;
+height: 480px;
+left: 45px;
+top: 10px;
+}
+#btn-section_card-2-home{
+  position: relative;
+  width: 126px;
+  height: 39px;
+  left: 40px;
+  top: 420px;
+  border: none;
+}
+#btn-section_product-home {
+  position: relative;
+  width: 209px;
+  height: 39px;
+  left: 616px;
+  top: 370px;
+  color: #5c5d5e;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+}
+#footerHome{
+  position: relative;
+  top: 2520px;
 }
