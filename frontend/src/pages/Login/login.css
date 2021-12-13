@@ -1,0 +1,85 @@
+.login{
+    display: flex;
+    position:absolute;
+    font-family: 'PT Sans Caption', sans-serif;
+    align-items: right;
+    justify-content: right;
+    height: 1000px;
+    width: 1400px;
+    top: 70px; 
+}
+
+.login-titulo{
+    color:#13315C;
+    display: flex;
+    padding: 10px;
+    padding-right: 300px;
+}
+
+.loginInputEmail{
+display: flex;
+position: absolute;
+width: 360px;
+height: 46px;
+left: 986px;
+top: 84px;
+border: 1px solid #CED4DA;
+
+
+}
+
+.loginInputEmail input{
+   background: transparent;
+   width: 100%;
+   outline-width: 0;
+   color:black ;
+    border: none;
+    padding: 10px;
+}
+.loginInputSenha{
+display: flex;
+position: absolute;
+width: 360px;
+height: 46px;
+left: 986px;
+top: 150px;
+border: 1px solid #CED4DA;
+}
+.loginInputSenha input{
+    background: transparent;
+    width: 100%;
+    outline-width: 0;
+    color:black ;
+     border: none;
+     padding: 10px;
+ }
+ .loginBotaoCadastro{
+    display: flex;
+    position: absolute;
+    width: 362px;
+    height: 26px;
+    left: 986px;
+    top: 210px;
+ }
+ 
+ .loginBotaoEsqueceuSenha{
+    display: flex;
+    position: absolute;
+    width: 362px;
+    height: 26px;
+    left: 986px;
+    top: 240px;
+    font-family: PT Sans Caption;
+    font-style: normal;
+    font-weight: normal;
+    color: #152536;
+ }
+
+ .loginBotaoEntrar{
+    display: flex;
+    position: absolute;
+    width: 362px;
+    height: 26px;
+    left: 986px;
+    top: 210px;
+ }
