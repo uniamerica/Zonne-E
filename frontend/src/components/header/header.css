@@ -1,6 +1,7 @@
 .container-header-navBar {
   background-color: rgba(0, 0, 0, 0.13);
   transition: 0.3s;
+  
 }
 .container-header-navBar.active {
   background-color: rgba(0, 0, 0, 0.719);

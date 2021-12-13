@@ -36,7 +36,7 @@ public class DeviceServiceTest {
 
     @Test
     public void deviceServiceTestInsertDevice(){
-        DeviceModel deviceTest = new DeviceModel(1L,"100","50","200","80");
+        DeviceModel deviceTest = new DeviceModel(1L,"100","50","200","80",null);
         Mockito.when(repository.save(deviceTest)).thenReturn(deviceTest);
         DeviceModel deviceInserted = service.findById(1L);
 
@@ -49,7 +49,7 @@ public class DeviceServiceTest {
     @Test
     public void deviceServiceTestEdit(){
         DeviceModel deviceTest = service.findById(1L);
-        DeviceModel deviceToCompare = new DeviceModel(1L,"100","50","200","80");
+        DeviceModel deviceToCompare = new DeviceModel(1L,"100","50","200","80",null);
 
         deviceTest.setDeviceValueKw("1000");
 
@@ -71,7 +71,7 @@ public class DeviceServiceTest {
 
     @BeforeEach
     public void setup(){
-        DeviceModel device = new DeviceModel(1L,"100","50","200","80");
+        DeviceModel device = new DeviceModel(1L,"100","50","200","80",null);
 
         Mockito.when(repository.findById(device.getIdDevice())).thenReturn(java.util.Optional.of(device));
     }

@@ -1,5 +1,7 @@
 package br.com.zonne.api.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.persistence.*;
 
@@ -20,12 +22,18 @@ public class DeviceModel {
     private String deviceValueIlum;
     private String deviceValueSolarPanel;
 
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "cpf")
+    private UserModel userModel;
+
     public DeviceModel(DeviceModel entity){
         idDevice = entity.getIdDevice();
         deviceValueKw = entity.getDeviceValueKw();
         deviceValueBasic = entity.getDeviceValueBasic();
         deviceValueIlum = entity.getDeviceValueIlum();
         deviceValueSolarPanel = entity.getDeviceValueSolarPanel();
+        userModel = entity.getUserModel();
     }
 
 }

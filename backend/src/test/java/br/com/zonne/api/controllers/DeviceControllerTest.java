@@ -34,7 +34,7 @@ public class DeviceControllerTest {
     @Test
     @DisplayName("Retorna status code 201 quando adicionar dados")
     public void shouldReturnStatusCode201_WhenCreateDeviceWithCorrectData() throws Exception {
-        DeviceModel device = new DeviceModel (1l,"550","376","900","238");
+        DeviceModel device = new DeviceModel (1l,"550","376","900","238", null);
 
         ObjectMapper mapper = new ObjectMapper();
 

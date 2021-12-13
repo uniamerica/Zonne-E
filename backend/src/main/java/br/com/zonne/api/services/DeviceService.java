@@ -31,6 +31,7 @@ public class DeviceService {
         unit.setDeviceValueBasic(device.getDeviceValueBasic());
         unit.setDeviceValueIlum(device.getDeviceValueIlum());
         unit.setDeviceValueSolarPanel(device.getDeviceValueSolarPanel());
+        unit.setUserModel(device.getUserModel());
 
         unit = repository.save(unit);
 

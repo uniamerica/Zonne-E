@@ -1,0 +1,155 @@
+h3 {
+  padding: 0px;
+  margin: 0px;
+}
+.container-gauge-data {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-gauge {
+  position: absolute;
+  top: 250px;
+  left: 150px;
+}
+
+.rotate {
+  /* -webkit-animation: rotate 5s normal linear infinite;
+  border-radius: 100%; */
+  animation: rotate 7s normal linear ease;
+}
+
+.data-gauge {
+  position: relative;
+  top: 255px;
+  left: 510px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0px;
+  padding: 0px;
+}
+
+.data-gauge-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.row-data-gauge{
+  width: 254px;
+  height: 2px;
+  background-color: #F6AE2D;
+}
+
+.title-data-gauge {
+  font-family: "Reem Kufi", sans-serif;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 18px;
+  line-height: 27px;
+  text-transform: uppercase;
+  color: #13315c;
+}
+
+.porcent-data-gauge {
+  font-family: "Reem Kufi", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 72px;
+  color: #13315c;
+}
+
+.data-gauge-kw {
+  font-family: "Reem Kufi", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 27px;
+  line-height: 40px;
+  color: #13315c;
+}
+
+.data-gauge-bottom {
+  position: relative;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.data-gauge-info {
+  position: relative;
+  right: 52px;
+  display: flex;
+  flex-direction: column;
+}
+
+.data-gauge-info-text {
+  font-family: "Reem Kufi", sans-serif;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 13px;
+  text-transform: uppercase;
+  line-height: 19px;
+  color: #13315c;
+}
+
+.hotbar {
+  position: relative;
+  top: 270px;
+  left: 245px;
+  padding-top: 10px;
+  display: flex;
+}
+
+.hotbar-titles {
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  text-transform: capitalize;
+  color: #9c9c9c;
+}
+
+.hotbar-content {
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #13315c;
+}
+
+.hotbar-box {
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  align-items: flex-end;
+}
+
+.hotbar-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.hotbar-icons {
+  width: 35px;
+  height: 35px;
+  color: #13315c;
+}
+
+#thunder-hotbar {
+  color: #f6ae2d;
+}
+#sun-hotbar {
+  color: #ffe600;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+}

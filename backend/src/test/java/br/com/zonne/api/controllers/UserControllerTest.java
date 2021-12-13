@@ -32,7 +32,7 @@ public class UserControllerTest{
     @Test
     @DisplayName("Deve retornar status code 201 quando criar usuario com dados corretos")
     public void shouldReturnStatusCode201_WhenCreateUserWithCorrectData() throws Exception {
-        UserModel user = new UserModel("12006934937", "John", "Doe", "email@email.com", "1234");
+        UserModel user = new UserModel("12006934937", "John", "Doe", "email@email.com", "1234", null);
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -56,7 +56,7 @@ public class UserControllerTest{
     @Test
     @DisplayName("Deve retornar status code 422 quando criar usuario com CPF incorreto")
     public void shouldReturnStatusCode422_WhenCreateUserWithIncorrectCpf() throws Exception {
-        UserModel user = new UserModel("123", "John", "Doe", "email@email.com", "1234");
+        UserModel user = new UserModel("123", "John", "Doe", "email@email.com", "1234", null);
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -71,8 +71,8 @@ public class UserControllerTest{
     @Test
     @DisplayName("Deve retornar status code 422 quando criar usuario com CPF existente")
     public void shouldReturnStatusCode422_WhenCreateUserWithExistingCpf() throws Exception {
-        UserModel existingUser = new UserModel("12006934937", "John", "Doe", "email@email.com", "1234");
-        UserModel user = new UserModel("12006934937", "Test", "Test2", "email@email.com", "12345");
+        UserModel existingUser = new UserModel("12006934937", "John", "Doe", "email@email.com", "1234", null);
+        UserModel user = new UserModel("12006934937", "Test", "Test2", "email@email.com", "12345", null);
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -92,7 +92,7 @@ public class UserControllerTest{
     @Test
     @DisplayName("Deve retornar status code 200 quando buscar usuario existente")
     public void shouldReturnStatusCode200_WhenSearchExistingUser() throws Exception {
-        UserModel user = new UserModel("12006934937", "John", "Doe", "email@email.com", "1234");
+        UserModel user = new UserModel("12006934937", "John", "Doe", "email@email.com", "1234", null);
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -115,7 +115,7 @@ public class UserControllerTest{
     @Test
     @DisplayName("Deve retornar status code 200 quando deletar usuario existente")
     public void shouldReturnStatusCode200_WhenDeleteExistingUser() throws Exception {
-        UserModel user = new UserModel("12006934937", "John", "Doe", "email@email.com", "1234");
+        UserModel user = new UserModel("12006934937", "John", "Doe", "email@email.com", "1234", null);
 
         ObjectMapper mapper = new ObjectMapper();
 
