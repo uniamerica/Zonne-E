@@ -1,0 +1,199 @@
+.container-box1-shop{
+    position: absolute;
+    width: 925px;
+    height: 939px;
+    left: 0px;
+    top: 85px;
+}
+.container-formaPagamento .texto-shop {
+    font-family: 'PT Sans Caption', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    color: #13315C;
+    position: absolute;
+    width: 65px;
+    height: 31px;
+    left: 54px;
+    top: 45px;
+}
+.container-formaPagamento .texto-formaPagamento {
+    font-family: 'PT Sans Caption', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 31px;
+    color: #13315C;
+    position: absolute;
+    width: 252px;
+    height: 31px;
+    left: 169px;
+    top: 46px;
+}
+.icons-arrow {
+    position: absolute;
+    width: 14px;
+    height: 31px;
+    left: 137px;
+    top: 65px;
+}
+.texto-metodoPagamento {
+    font-family: 'PT Sans Caption', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    position: absolute;
+    width: 387px;
+    height: 21px;
+    left: 252px;
+    top: 170px;
+}
+.containerCheckboxPagamento {
+    position: absolute;
+    width: 250;
+    height: 15px;
+    left: 250px;
+    top: 225px;
+}
+.checkboxButton {
+    display: block;
+    position: relative;
+    float: left;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+  
+.checkboxButton input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #081d3a;
+    border-radius: 50%;
+}
+  
+.checkboxButton:hover input ~ .checkmark {
+    background-color: rgb(139, 139, 139);
+}
+  
+.checkboxButton input:checked ~ .checkmark {
+    background-color: #f6ae2d;
+}
+  
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.checkboxButton input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+.checkboxButton .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+.containerInformacoesPagamento {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 421px;
+    height: 50x;
+    left: 252px;
+    top: 288px;
+    border: 1px solid #CED4DA;
+}
+.containerInformacoesPagamento input{
+    background: transparent;
+    width: 100%;
+    outline-width: 0;
+    color:black ;
+    border: none;
+    padding: 10px;
+}
+.shopBotaoFinalizar{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    width: 116px;
+    height: 39px;
+    left: 556px;
+    top: 460px;
+    background: #F6AE2D;
+    border-radius: 4px;
+}
+.shopBotaoFinalizar button {
+    width: 126px;
+    height: 39px;
+    background: #f6ae2d;
+    border-radius: 4px;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.container-box2-shop{
+    position: absolute;
+    width: 515px;
+    height: 940px;
+    left: 925px;
+    top: 84px;
+
+}
+.texto-shopResumo {
+    font-family: 'PT Sans Caption', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 47px;
+    position: absolute;
+    width: 140px;
+    height: 47px;
+    left: 97px;
+    top: 47px;
+    color: #13315C;
+}
+.resumoTextoShop {
+    position: absolute;
+    width: 140px;
+    height: 47px;
+    left: 97px;
+    top: 47px;
+
+    font-family: 'PT Sans Caption', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 47px;
+    color: #13315C;
+    }
+
