@@ -1,5 +1,6 @@
 package br.com.zonne.api.controllers;
 
+import br.com.zonne.api.models.DeviceModel;
 import br.com.zonne.api.models.UserModel;
 import br.com.zonne.api.repositories.UserRepository;
 import br.com.zonne.api.services.UserService;
@@ -25,9 +26,14 @@ public class UserController {
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping(path = "/{cpf}")
+    @GetMapping(path = "/cpf/{cpf}")
     public ResponseEntity<UserModel> findByCpf(@PathVariable String cpf) {
         return ResponseEntity.ok(service.findByCpf(cpf));
+    }
+
+    @GetMapping(path = "/email/{email}")
+    public ResponseEntity<UserModel> findByEmail(@PathVariable String email) {
+        return ResponseEntity.ok(service.findByEmail(email));
     }
 
     @PostMapping
@@ -41,6 +47,8 @@ public class UserController {
             return ResponseEntity.unprocessableEntity().build();
         }
     }
+
+
 
     @DeleteMapping(path = "/{cpf}")
     public ResponseEntity<String> deleteByCpf(@PathVariable String cpf){

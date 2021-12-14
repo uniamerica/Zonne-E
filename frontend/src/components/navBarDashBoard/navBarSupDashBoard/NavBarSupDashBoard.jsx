@@ -1,7 +1,7 @@
 import "./navBarSupDashBoard.css"
 import {BsPersonCircle as Perfil} from "react-icons/bs";
 import {TiArrowSortedDown as ArrowDown} from "react-icons/ti";
-import Logo from "../../public/zonne.png";
+import Logo from "../../../public/zonne.png";
 
 function NavBarSupDashBoard(){
     return(

@@ -12,6 +12,11 @@ import { FaCalendarAlt as ReportIcon } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function NavBarLatDashBoard() {
+  const handleClick = (e) => {
+    e.preventDefault();
+    window.location.href = "/"
+    
+  };
   return (
     <nav className="container-navLat">
       <div className="close-icon">
@@ -36,12 +41,12 @@ function NavBarLatDashBoard() {
           <h3 className="titles-nav-dashBoard"> avisos </h3>
         </div>
       </Link>
-      <Link to="/"  className="link-dashBoard">
+      <div  onClick={handleClick} className="link-dashBoard">
         <div className="logout-icon box-icons-dashBoard">
           <LogOutIcon className="logOutIcon-dashBoard icons-dashBoard" />
           <h3 className="titles-nav-dashBoard"> logout </h3>
         </div>
-      </Link>
+      </div>
     </nav>
   );
 }

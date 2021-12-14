@@ -45,11 +45,10 @@ public class DeviceService {
     public DeviceModel edit(Long idDevice, DeviceModel update){
         DeviceModel updated = findById(idDevice);
 
-        updated.setIdDevice(update.getIdDevice());
-        updated.setDeviceValueKw(updated.getDeviceValueKw());
+        updated.setDeviceValueKw(update.getDeviceValueKw());
         updated.setDeviceValueBasic(update.getDeviceValueBasic());
-        updated.setDeviceValueIlum(updated.getDeviceValueIlum());
-        updated.setDeviceValueSolarPanel(updated.getDeviceValueSolarPanel());
+        updated.setDeviceValueIlum(update.getDeviceValueIlum());
+        updated.setDeviceValueSolarPanel(update.getDeviceValueSolarPanel());
 
         repository.save(updated);
 

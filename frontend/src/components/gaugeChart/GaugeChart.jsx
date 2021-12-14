@@ -7,19 +7,34 @@ import OrbZ from "../../public/orbZonne.png";
 import Ponteiro from "../../public/ponteiro.png";
 import api from "../../api";
 
-function GaugeChart() {
+
+
+function GaugeChart(props) {
   const [gaugeValue, setGaugeValue] = useState(0.5);
   const [user, setUser] = useState();
-  const [valueSolarPanel, setValueSolarPanel] = useState(5000);
-  const [valueKw, setValueKw] = useState(0);
-  const [valuePorcent, setValuePorcent] = useState(null);
+  const [valueSolarPanel, setValueSolarPanel] = useState();
+  const [valueKw, setValueKw] = useState();
+  const [valuePorcent, setValuePorcent] = useState();
+  
+  // const {email} = useParams();
   
   useEffect(() => {
-    valueSolarToPorcent();
+     findByEmail();
+    
   }, []);
-  async function valueData(e) {
-    const response = await api.get("/user/12006934937");
-    setUser(response.data);
+  
+  async function findByEmail() {
+    const response = await api.get("/user/email/" + props.email);
+    console.log(props.email)
+    if (response.status == 200) {
+      setUser(response.data);
+      setValueSolarPanel(Number.parseInt(response.data.devices[0].deviceValueSolarPanel, 10))
+      setValueKw(Number.parseInt(response.data.devices[0].deviceValueKw, 10))
+    }
+    
+    valueSolarToPorcent();
+    console.log(valuePorcent)
+    
   }
   const valueSolarToPorcent = () => {
     let result = (valueKw * 100) / valueSolarPanel;

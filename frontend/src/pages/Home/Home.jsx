@@ -59,7 +59,7 @@ function Home() {
           Theater. Alright, c'mon, I think we're safe. C'mon. Will you take care
           of that?
         </p>
-        <ButtonMore idBtnMore="btn-section_hand-home" text="saiba mais"/>
+        <ButtonMore idBtnMore="btn-section_hand-home" text="saiba mais" rota=""/>
       </div>
       <div style={{
         position: "absolute",
@@ -73,7 +73,7 @@ function Home() {
         backgroundRepeat: "no-repeat",
         boxShadow: "0px 4px 40px 10px #000000",
       }}>
-        <ButtonMore idBtnMore="btn-section_product-home" text="encomendar agora"/>
+        <ButtonMore idBtnMore="btn-section_product-home" text="encomendar agora" rota=""/>
       </div>
       <div style={{
         position: "absolute",
@@ -95,7 +95,7 @@ function Home() {
             Theater. Alright, c'mon, I think we're safe. C'mon. Will you take
             care of that?
           </p>
-          <ButtonMore idBtnMore="btn-section_card-2-home" text="saiba mais"/>
+          <ButtonMore idBtnMore="btn-section_card-2-home" text="saiba mais" rota=""/>
         </div>
       </div>
       <Footer idFooter="footerHome"/>

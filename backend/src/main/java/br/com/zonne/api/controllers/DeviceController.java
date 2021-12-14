@@ -39,6 +39,11 @@ public class DeviceController {
                 }
         }
 
+        @PutMapping(path = "/{id}")
+        public ResponseEntity<DeviceModel> update(@PathVariable Long id, @RequestBody DeviceModel update){
+                return ResponseEntity.ok(service.edit(id, update));
+        }
+
         @GetMapping(path = "/{id}")
         public ResponseEntity<DeviceModel> findById(@PathVariable Long id) {
                 return ResponseEntity.ok(service.findById(id));

@@ -54,6 +54,11 @@ public class UserService {
         return result.orElseThrow(() -> new UserNotFoundException("User not found. Please try again."));
     }
 
+    public UserModel findByEmail(String email) {
+        Optional<UserModel> result = repository.findByUserEmail(email);
+        return result.orElseThrow(() -> new UserNotFoundException("User not found. Please try again."));
+    }
+
     public void deleteByCpf(String cpf){
         repository.delete(findByCpf(cpf));
     }
