@@ -2,6 +2,7 @@ import {BrowserRouter as Router, Switch, Route, useParams} from "react-router-do
 import Home from "./pages/Home/Home";
 import Produto from "./pages/Produto/Produto";
 import Login from "./pages/Login/Login";
+import Cadastro from "./pages/Cadastro/Cadastro"
 import NotFound from "./pages/NotFound/NotFound";
 import Header from "./components/header/Header";
 import ScrollToTop from "./components/ScrollToTop";
@@ -24,7 +25,8 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/produto" component={Produto} />
-        <Route path="/login" component={Login} />  
+        <Route path="/login" component={Login} /> 
+        <Route path="/cadastro" component={Cadastro} />   
         <Route path="/dashboard" component={DashBoardHome} />
         <Route path="*" component={NotFound} />        
       </Switch>
