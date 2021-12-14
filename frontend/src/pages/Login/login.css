@@ -1,85 +1,71 @@
-.login{
-    display: flex;
-    position:absolute;
-    font-family: 'PT Sans Caption', sans-serif;
-    align-items: right;
-    justify-content: right;
-    height: 1000px;
-    width: 1400px;
-    top: 70px; 
+.container-login{
+    width: 1440px;
+    height: 920px;
+    margin: 0 auto;
 }
-
-.login-titulo{
-    color:#13315C;
-    display: flex;
-    padding: 10px;
-    padding-right: 300px;
+.login {
+  display: flex;
+  position: relative;
+  font-family: "PT Sans Caption", sans-serif;
+  align-items: right;
+  justify-content: right;
+  top: 200px;
+  right: 45px;
 }
-
-.loginInputEmail{
-display: flex;
-position: absolute;
-width: 360px;
-height: 46px;
-left: 986px;
-top: 84px;
-border: 1px solid #CED4DA;
-
-
+.box-login {
+  display: flex;
+  flex-direction: column;
 }
-
-.loginInputEmail input{
-   background: transparent;
-   width: 100%;
-   outline-width: 0;
-   color:black ;
-    border: none;
-    padding: 10px;
+.btns-login {
+  display: flex;
+  flex-direction: row;
+  margin-top: 33px;
+  justify-content: space-between;
 }
-.loginInputSenha{
-display: flex;
-position: absolute;
-width: 360px;
-height: 46px;
-left: 986px;
-top: 150px;
-border: 1px solid #CED4DA;
+.links-login {
+  display: flex;
+  flex-direction: column;
 }
-.loginInputSenha input{
-    background: transparent;
-    width: 100%;
-    outline-width: 0;
-    color:black ;
-     border: none;
-     padding: 10px;
- }
- .loginBotaoCadastro{
-    display: flex;
-    position: absolute;
-    width: 362px;
-    height: 26px;
-    left: 986px;
-    top: 210px;
- }
- 
- .loginBotaoEsqueceuSenha{
-    display: flex;
-    position: absolute;
-    width: 362px;
-    height: 26px;
-    left: 986px;
-    top: 240px;
-    font-family: PT Sans Caption;
-    font-style: normal;
-    font-weight: normal;
-    color: #152536;
- }
-
- .loginBotaoEntrar{
-    display: flex;
-    position: absolute;
-    width: 362px;
-    height: 26px;
-    left: 986px;
-    top: 210px;
- }
+.title-login {
+  font-family: "PT Sans Caption", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 62px;
+  text-transform: capitalize;
+  color: #13315c;
+}
+.inputs-login {
+  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 436px;
+  background: #ffffff;
+  font-family: "PT Sans Caption", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+  color: black;
+  border: 1px solid #ced4da;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-top: 33px;
+}
+.text-links-login {
+  font-family: "PT Sans Caption", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 12px;
+}
+.text-links-login:hover {
+    color: #f6ae2d;
+    transition: 0.5s;
+}
+.links{
+    text-decoration: none;
+}
+#btn-entrar-login{
+    background: #13315C;
+}

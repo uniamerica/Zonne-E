@@ -1,18 +1,20 @@
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, useParams} from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Produto from "./pages/Produto/Produto";
 import Shop from "./pages/Shop/Shop";
 import Login from "./pages/Login/Login";
+import Cadastro from "./pages/Cadastro/Cadastro"
 import NotFound from "./pages/NotFound/NotFound";
 import Header from "./components/header/Header";
-import NavBarSupDashBoard from "./components/navBarSupDashBoard/NavBarSupDashBoard";
-import NavBarLatDashBoard from "./components/navBarLatDashBoard/NavBarLatDashBoard";
 import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
 import DashBoardHome from "./pages/DashBoard/DashBoardHome/DashBoardHome";
+import NavBarLatDashBoard from "./components/navBarDashBoard/navBarLatDashBoard/NavBarLatDashBoard";
+import NavBarSupDashBoard from "./components/navBarDashBoard/navBarSupDashBoard/NavBarSupDashBoard";
 
 
 function App() {
+  
   return (
     <Router>
       <ScrollToTop />
