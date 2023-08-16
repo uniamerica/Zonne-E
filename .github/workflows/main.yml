@@ -25,7 +25,7 @@ jobs:
         cache: maven
         
     - name: Run Tests
-      run: mvn -X -e test
+      run: mvn -X -e backend/ test
   build:
     name: Build
     runs-on: ubuntu-latest
